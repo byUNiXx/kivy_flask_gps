@@ -1,0 +1,50 @@
+[
+  {
+    "type": "title",
+    "title": "General Settings"
+  },
+  {
+    "type": "options",
+    "title": "Vehicle type",
+    "desc": "",
+    "section": "general",
+    "key": "vehicle_type",
+    "options": [
+      "car",
+      "truck",
+      "bike"
+    ]
+  },
+  {
+    "type": "title",
+    "title": "Alerts Settings"
+  },
+  {
+    "type": "bool",
+    "title": "Cars",
+    "desc": "Turn on alerts when nearby cars",
+    "section": "general",
+    "key": "notify_cars"
+  },
+  {
+    "type": "bool",
+    "title": "Bikes",
+    "desc": "Turn on alerts when nearby bikes",
+    "section": "general",
+    "key": "notify_bikes"
+  },
+  {
+    "type": "bool",
+    "title": "Trucks",
+    "desc": "Turn on alerts when nearby trucks",
+    "section": "general",
+    "key": "notify_trucks"
+  },
+  {
+    "type": "bool",
+    "title": "Sound Notifications",
+    "desc": "Turn on sound notifications",
+    "section": "general",
+    "key": "sound_notifications"
+  }
+]

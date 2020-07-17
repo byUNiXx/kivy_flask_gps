@@ -1,0 +1,11 @@
+<GpsPointer>:
+    pointer_size: 20
+    source: 'assets/transparent.png'
+
+    canvas.before:
+        Color:
+            rgb: 0, 102/255, 204/255
+        RoundedRectangle:
+            radius: [root.pointer_size/2.0, ]
+            size: [root.pointer_size, root.pointer_size]
+            pos: root.pos[0] + root.size[0]/2.0 - root.pointer_size/2.0, root.pos[1] + root.size[1]/2.0 - root.pointer_size/2.0

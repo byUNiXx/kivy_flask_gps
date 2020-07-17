@@ -1,0 +1,17 @@
+#:import MapView kivy_garden.mapview.MapView
+
+#:import GpsPointer widgets.map.gps_pointer.GpsPointer
+#:import Gps helpers.gps.gps.Gps
+#:include widgets/map/gps_pointer.kv
+
+<AlertMapView>:
+    lat: 39.9833300
+    lon: -0.0333300
+    zoom: 17
+    on_touch_down: root.on_touch_down
+    on_zoom:
+        self.zoom = 17 if self.zoom < 17 else self.zoom
+    GpsPointer:
+        id: pointer
+        lat: root.lat
+        lon: root.lon
