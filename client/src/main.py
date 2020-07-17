@@ -105,6 +105,8 @@ class MainApp(MDApp):
                    lambda request, results: print(request.resp_status),
                    lambda request, results: print(request.resp_status),
                    lambda request, results: print(request.resp_status)).execute()
+        elif key == "sound_notifications":
+            pass
         else:
             if value == "0":
                 Server.settings_helper_del(key)

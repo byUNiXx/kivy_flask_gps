@@ -18,7 +18,7 @@ from widgets.popup import PopupPersonalizado
 
 class Gps:
     mock = False
-
+    threads = []
     def run(self):
         if platform == "android":
 
@@ -79,7 +79,10 @@ class Gps:
             t = threading.Thread(name="daemon_android", target=partial(self.api_calls, app, lat, lon, self.mock))
             t.setDaemon(True)
             print("Va a empezar el hilo daemon_android")
+            self.threads.append(t)
             t.start()
+            if threading.current_thread().getName() == "daemon_android":
+                self.threads.remove(threading.current_thread())
 
     def update_pos_windows(self, dt):
         mapa = App.get_running_app().root.ids.map
@@ -93,10 +96,13 @@ class Gps:
         app = App.get_running_app()
 
         if app.globals["route"]:
-            t = threading.Thread(name="daemon_windows", target=partial(self.api_calls, app, lat, lon, self.mock))
+            t = threading.Thread(name="daemon_windows", target=partial(self.api_calls, app, lat, lon, self.mock), )
             t.setDaemon(True)
+            self.threads.append(t)
             print("Va a empezar el hilo daemon_windows")
             t.start()
+            if threading.current_thread().getName() == "daemon_windows":
+                self.threads.remove(threading.current_thread())
 
     @staticmethod
     def api_calls(app, lat, lon, mock):

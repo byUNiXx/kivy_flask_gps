@@ -3,6 +3,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.widget import Widget
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarker
+from kivy.core.audio import SoundLoader
 from kivy.app import App
 
 from widgets.map.gps_pointer import GpsPointer
@@ -23,7 +24,10 @@ class AlertMapView(MapView):
 
         if marcador[0] is not -1 and marcador[0] not in self.lista_anadidos:
             marker = MapMarker(lat=marcador[1], lon=marcador[2])
+            sound = SoundLoader.load('assets/notification.wav')
             mapa.add_widget(marker)
+            if sound and App.get_running_app().config.get("general", "sound_notifications") == "1":
+                sound.play()
             mapa.lista_marker.append(marker)
             mapa.lista_anadidos.append(marcador[0])
             print("anadido")

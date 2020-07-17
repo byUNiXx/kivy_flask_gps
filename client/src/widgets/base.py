@@ -65,6 +65,8 @@ class Base(FloatLayout):
 
         else:
             print("Acabo ruta")
+            for thread in App.get_running_app().gps.threads:
+                thread.join()
             App.get_running_app().gps.mock = False
             App.get_running_app().root.ids.map.delete()
 
