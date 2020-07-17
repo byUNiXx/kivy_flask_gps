@@ -1,4 +1,4 @@
-#Introducción
+#Introducción- OUTDATED
 
 El proyecto consiste en realizar dos implementaciones para comunicar datos entre clientes Android y un servidor centralizado. Estos sistemas de comunicación son una parte de mensajería muy común en aplicaciones para móviles, por ejemplo juegos o aplicaciones que usan geolocalización. En estos sistemas es muy importante su característica de tiempo real es decir que sirva para sistemas interactivos.
 
